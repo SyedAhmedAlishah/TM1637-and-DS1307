@@ -6,5 +6,5 @@ OR
 You can use the code in this repository for I2C scanner by name of I2C_Scanner.ino
 
 'The libraries used in this project are. 
-1. DS1307 sensor library uRTCLib by Naguissa (v 6.6.1)
-2. TM1637 by Avishay Orpaz (v 1.2.0)
+1. DS1307 sensor [library](https://github.com/Naguissa/uRTCLib) uRTCLib by Naguissa (v 6.6.1)
+2. TM1637 [library](https://github.com/avishorp/TM1637) by Avishay Orpaz (v 1.2.0)
