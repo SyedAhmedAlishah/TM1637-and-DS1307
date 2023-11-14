@@ -30,9 +30,9 @@ TM1637Display display = TM1637Display(CLK, DIO);
 uRTCLib rtc(0x68);
 
 
-char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+//char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
-String clock; // Variable to store combine string of hours and minutes
+int clock_time; // Variable to store combine string of hours and minutes
 
 void setup() {
   Serial.begin(9600);
@@ -45,7 +45,7 @@ void setup() {
   // Comment out below line once you set the date & time.
   // Following line sets the RTC with an explicit date & time
   // for example to set January 13 2022 at 12:56 you would call:
-  //rtc.set(0, 28, 12, 1, 29, 10, 23);
+  // rtc.set(0, 15, 2, 3, 14, 11, 23);
   // rtc.set(second, minute, hour, dayOfWeek, dayOfMonth, month, year)
   // set day of week (1=Sunday, 7=Saturday)
 }
@@ -69,12 +69,14 @@ void loop() {
   // Serial.print(rtc.minute());
   // Serial.print(':');
   // Serial.println(rtc.second());
-  
-  clock = String(rtc.hour()) + String(rtc.minute()); // Converting int type return of .hour and .minute into string and concatenate
+  clock_time = (rtc.hour() * 100) + rtc.minute();
+  Serial.println(clock_time);
 
-  display.showNumberDecEx(clock.toInt(), 0b11100000, true, 4, 0); // True for displaying colon of display segment
-  delay(1000);
-  display.clear();
+  // Display the current time in 24 hour format with leading zeros enabled and a center colon:
+  display.showNumberDecEx(clock_time, 0b11100000, true);
+  // Remove the following lines of code if   you want a static instead of a blinking center colon:
+  delay(500);
 
-  delay(100);
+  display.showNumberDec(clock_time, true); // Prints displaytime without center colon.
+  delay(500);
 }
