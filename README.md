@@ -8,3 +8,7 @@ You can use the code in this repository for I2C scanner by name of I2C_Scanner.i
 'The libraries used in this project are. 
 1. DS1307 sensor [library](https://github.com/Naguissa/uRTCLib) uRTCLib by Naguissa (v 6.6.1)
 2. TM1637 [library](https://github.com/avishorp/TM1637) by Avishay Orpaz (v 1.2.0)
+
+Here it is in working 😃
+https://github.com/SyedAhmedAlishah/TM1637-and-DS1307/assets/50069931/b45efd68-fe56-41a3-896b-5072295b7d08
+
